@@ -1,0 +1,66 @@
+version: 2
+
+sources:
+  - name: nyc_taxi
+    database: de-zoomcamp-485821  # Your GCP project ID
+    schema: nyc_taxi
+    description: "NYC Taxi and Limousine Commission trip data"
+    tables:
+      - name: yellow_tripdata
+        description: "Yellow taxi trip records for 2019-2020"
+      
+      - name: green_tripdata
+        description: "Green taxi trip records for 2019-2020"
+
+models:
+    - name: stg_yellow_tripdata
+      description: "Cleaned and filtered yellow taxi trips from 2019-2020"
+      columns:
+          - name: VendorID
+            description: "Provider that provided the record (1=Creative Mobile Technologies, 2=VeriFone Inc.)"
+          - name: tpep_pickup_datetime
+            description: "The date and time when the meter was engaged"
+            tests:
+                - not_null
+          - name: tpep_dropoff_datetime
+            description: "The date and time when the meter was disengaged"
+            tests:
+                - not_null
+          - name: passenger_count
+            description: "The number of passengers in the vehicle"
+          - name: trip_distance
+            description: "The elapsed trip distance in miles"
+          - name: PULocationID
+            description: "TLC Taxi Zone where the meter was engaged"
+          - name: DOLocationID
+            description: "TLC Taxi Zone where the meter was disengaged"
+          - name: payment_type
+            description: "Payment method (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)"
+          - name: total_amount
+            description: "The total amount charged to passengers"
+
+    - name: stg_green_tripdata
+      description: "Cleaned and filtered green taxi trips from 2019-2020"
+      columns:
+          - name: VendorID
+            description: "Provider that provided the record"
+          - name: lpep_pickup_datetime
+            description: "The date and time when the meter was engaged"
+            tests:
+                - not_null
+          - name: lpep_dropoff_datetime
+            description: "The date and time when the meter was disengaged"
+            tests:
+                - not_null
+          - name: passenger_count
+            description: "The number of passengers in the vehicle"
+          - name: trip_distance
+            description: "The elapsed trip distance in miles"
+          - name: PULocationID
+            description: "TLC Taxi Zone where the meter was engaged"
+          - name: DOLocationID
+            description: "TLC Taxi Zone where the meter was disengaged"
+          - name: payment_type
+            description: "Payment method"
+          - name: total_amount
+            description: "The total amount charged to passengers"

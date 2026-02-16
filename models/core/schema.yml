@@ -1,0 +1,24 @@
+version: 2
+
+models:
+    - name: fct_trips
+      description: "Combined yellow and green taxi trips for 2019-2020"
+      columns:
+          - name: service_type
+            description: "Type of taxi service (Yellow or Green)"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ['Yellow', 'Green']
+          - name: pickup_datetime
+            description: "Trip pickup datetime"
+            tests:
+                - not_null
+          - name: dropoff_datetime
+            description: "Trip dropoff datetime"
+            tests:
+                - not_null
+          - name: trip_distance
+            description: "The elapsed trip distance in miles"
+          - name: total_amount
+            description: "The total amount charged to passengers"
