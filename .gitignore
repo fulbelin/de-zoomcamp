@@ -4,3 +4,31 @@ target/
 dbt_packages/
 logs/
 dbt_internal_packages/
+
+# Service account keys - NEVER commit these!
+*.json
+keys/
+credentials/
+service-account*.json
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
