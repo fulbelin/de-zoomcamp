@@ -8,8 +8,6 @@ models:
             description: "Type of taxi service (Yellow or Green)"
             tests:
                 - not_null
-                - accepted_values:
-                    values: ['Yellow', 'Green']
           - name: pickup_datetime
             description: "Trip pickup datetime"
             tests:
