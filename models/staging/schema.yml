@@ -11,7 +11,8 @@ sources:
       
       - name: green_tripdata
         description: "Green taxi trip records for 2019-2020"
-
+      - name: fhv_2019
+        description: "For-Hire Vehicle trip records for 2019"
 models:
     - name: stg_yellow_tripdata
       description: "Cleaned and filtered yellow taxi trips from 2019-2020"
